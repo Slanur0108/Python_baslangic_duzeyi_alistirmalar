@@ -1,4 +1,6 @@
-print("SILANURUN DONDURMA DÜKKANINA HOŞGELDİNİZZZZ")
+#İce Cream Shop
+           
+print("DONDURMA DÜKKANINA HOŞGELDİNİZZZZ")
 
 """
 DONDURMA TÜRLERİ:
@@ -11,27 +13,51 @@ tuşlayınız...
 
 """
 
-x = int(input("Kaç top dondurma istersiniz? "))
-kulah = list()
+# Dondurma fiyatlarını içeren sözlük
+fiyatlar = {1: 25, 2: 30, 3: 50, 4: 20, 5: 45}
 
+# Kullanıcıdan kaç top istediğini al
+while True:
+    try:
+        x = int(input("Kaç top dondurma istersiniz? "))
+        if x <= 0:
+            print("Lütfen pozitif bir sayı girin.")
+        else:
+            break
+    except ValueError:
+        print("Lütfen geçerli bir sayı girin.")
+
+kulah = []
+
+# Kullanıcıdan her top için dondurma çeşidini sorma
 for i in range(x):
     while True:
-        a = int(input("Bu topunuz hangi çeşit olsun? "))
-        
-        if  1 <= a <=5:
-            kulah.append(a)
-            break
-        else:
-            print("Yanlış değer girdiniz tekrar deneyin")
-            
-            
-                       
-print( kulah.count(1),"top çilekli\n" ,kulah.count(2), "top kakaolu\n",kulah.count(3), "top limonlu\n",kulah.count(5), "top kavunlu\n", kulah.count(4), "top vanilyalı dondurmanız HAZIIIRRR.....")   
+        try:
+            a = int(input(f"{i+1}. topunuz hangi çeşit olsun? (1-5): "))
+            if 1 <= a <= 5:
+                kulah.append(a)
+                break
+            else:
+                print("Yanlış değer girdiniz, lütfen 1-5 arasında bir değer girin.")
+        except ValueError:
+            print("Lütfen geçerli bir sayı girin.")
 
-fiyat = 25 * kulah.count(1) + kulah.count(2) * 30 + 50 * kulah.count(3) + kulah.count(4) * 20 + kulah.count(5) * 45
+# Her çeşit dondurmanın sayısını hesaplama
+adetler = {i: kulah.count(i) for i in fiyatlar.keys()}
 
-print("Ödemeniz gereken ücret" , fiyat , "tır.")     
-            
+# Sipariş Özeti
+print("\nSİPARİŞİNİZ:")
+for key, value in adetler.items():
+    if value > 0:
+        print(f"- {value} top {['Çilekli', 'Kakaolu', 'Limonlu', 'Vanilyalı', 'Kavunlu'][key-1]}")
+
+# Toplam fiyat hesaplama
+toplam_fiyat = sum(adetler[key] * fiyatlar[key] for key in fiyatlar)
+
+print(f"\nÖdemeniz gereken toplam ücret: {toplam_fiyat} TL\n")
+print("Afiyet olsun! ")
+
+           
             
     
         
