@@ -56,10 +56,3 @@ toplam_fiyat = sum(adetler[key] * fiyatlar[key] for key in fiyatlar)
 
 print(f"\nÖdemeniz gereken toplam ücret: {toplam_fiyat} TL\n")
 print("Afiyet olsun! ")
-
-           
-            
-    
-        
-        
-        
