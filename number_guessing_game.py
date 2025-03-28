@@ -41,24 +41,4 @@ while tahmin_hakki > 0:
         print(f"Tahmin hakkınız doldu! Doğru cevap: {sayi}")
 
 print("Oyun bitti. Tekrar oynamak için programı yeniden çalıştırın.")        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+      
